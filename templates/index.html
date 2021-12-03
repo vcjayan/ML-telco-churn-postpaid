@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="shortcut icon" href="#">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mainpage.css') }}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  
+  <meta charset="utf-8">
+  <title>ML Telco churn</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <div class= "container">
+        <h1 class= "container" style="text-align: center">Predict customer churn for post-paid base</h1>
+    </div>
+    <br>
+    <br>
+<div class = "container">
+<form class="form-inline" style="text-align: center" action = "{{url_for('result')}}"method = "post">
+    
+    
+    <label for="NET_BAD_DEBT">NET_BAD_DEBT</label>
+            <input size="20" type="text" id="NET_BAD_DEBT" name="NET_BAD_DEBT" placeholder="Net bad debt (in INR)" required = "required">
+    <br>
+    <br>
+    
+    <label for="BAD_DEBT_FLAG">BAD_DEBT_FLAG</label>
+        <select  id="BAD_DEBT_FLAG" name="BAD_DEBT_FLAG">
+            <option></option>
+            <option value="0">BAD</option>
+            <option value="1">GOOD</option>
+        </select>
+    <br>
+    <br>
+    
+    <label for="NOD">NOD</label>
+            <input type="text" id="NOD" name="NOD" placeholder="Nod" required = "required">
+    <br>
+    <br> 
+    <label for="NO OF INVOICES GENERATED">NO OF INVOICES GENERATED</label>
+            <input type="text" id="NO OF INVOICES GENERATED" name="NO OF INVOICES GENERATED" placeholder="Number of invoices" required = "required">
+    <br>
+    <br>
+       
+    <button type = "submit" class = "btn-btn-primary">Predict</button>
+            <br>
+</form>
+</div>
+            <br>
+            <br>
+
+        {{prediction_text}}
+    </div>
+</body>
+</html>
